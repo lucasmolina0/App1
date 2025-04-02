@@ -1,7 +1,7 @@
 #include "metricas.h"
 // Funcion entrega la pizza mas vendida
 char* pizza_mas_vendida(int *size, struct order *orders) {
-    static char result[100];
+    static char result[256];
     struct pizza_count {
         char pizza_name[100];
         int total_quantity;
@@ -40,7 +40,7 @@ char* pizza_mas_vendida(int *size, struct order *orders) {
 }
 // Funcion que entrega la pizza menos vendida
 char* pizza_menos_vendida(int *size, struct order *orders) {
-    static char result[100];
+    static char result[256];
     int min_quantity = orders[0].quantity;
     char least_sold_pizza[100] = "";
     strncpy(least_sold_pizza, orders[0].pizza_name, sizeof(least_sold_pizza));
@@ -144,7 +144,7 @@ char* fecha_menos_ventas_dinero(int *size, struct order *orders) {
 }
 // Funcion que devuelve la fecha con mas ventas
 char* fecha_mas_ventas_cantidad(int *size, struct order *orders) {
-    static char result[100];
+    static char result[256];
     struct fecha_count {
         char order_date[20];
         int total_quantity;
@@ -185,7 +185,7 @@ char* fecha_mas_ventas_cantidad(int *size, struct order *orders) {
 }
 // Funcion que devuelve la fecha con menos ventas
 char* fecha_menos_ventas_cantidad(int *size, struct order *orders) {
-    static char result[100];
+    static char result[256];
     struct fecha_count {
         char order_date[20];
         int total_quantity;
@@ -228,7 +228,7 @@ char* fecha_menos_ventas_cantidad(int *size, struct order *orders) {
 }
 // Funcion que saca el promedio de pizzas por orden
 char* promedio_pizzas_por_orden(int *size, struct order *orders) {
-    static char result[100];
+    static char result[256];
     int total_pizzas = 0;
     for (int i = 0; i < *size; i++) {
         total_pizzas += orders[i].quantity;
@@ -239,7 +239,7 @@ char* promedio_pizzas_por_orden(int *size, struct order *orders) {
 }
 // Funcion que saca el promedio de pizzas por dia
 char* promedio_pizzas_por_dia(int *size, struct order *orders) {
-    static char result[100];
+    static char result[256];
     int total_pizzas = 0;
     int total_days = 0;
     char last_date[20] = "";
@@ -284,7 +284,7 @@ void trim_spaces_and_quotes(char *str) {
     }
 // Funcion para contar la cantidad de ingredientes totales entre todas las ordenes 
 char* ingrediente_mas_vendido(int *size, struct order *orders) {
-    static char result[100];
+    static char result[256];
 
     
     struct ingredient_count {
